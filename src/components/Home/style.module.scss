@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px 32px 48px;
+  height: 100dvh;
+  width: 100vw;
+
+  @media (max-width: 768px) {
+    padding: 20px 16px 40px;
+    gap: 20px;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.heroLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.greetingWrap {
+  overflow: hidden;
+}
+
+.greeting {
+  display: inline-block;
+}
