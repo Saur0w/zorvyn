@@ -311,7 +311,6 @@ export default function Overview() {
                 ))}
             </section>
 
-            {/* Only render charts when mounted to prevent recharts hydration mismatch */}
             {isMounted && (
                 <section className={styles.chartsSection} ref={chartsRef}>
                     <div className={styles.chartBlock} data-scroll>
@@ -380,7 +379,6 @@ export default function Overview() {
                                     ))}
                                 </Pie>
                                 <Tooltip
-                                    // Fixed Recharts Types by allowing union parameters
                                     formatter={(value: number | string | (number | string)[]) => {
                                         const parsed = typeof value === 'number' ? value : Number(value);
                                         return [`$${parsed.toLocaleString()}`, ''];
