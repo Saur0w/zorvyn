@@ -1,0 +1,380 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Insights Page Styles
+// ─────────────────────────────────────────────────────────────────────────────
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px 32px 48px;
+
+  @media (max-width: 768px) { padding: 20px 16px 40px; }
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.4px;
+  margin-bottom: 3px;
+}
+
+.subheading {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+// ── KPI Strip ─────────────────────────────────────────────────────────────────
+
+.kpiStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 440px) { grid-template-columns: 1fr 1fr; }
+}
+
+.kpiCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: border-color 0.2s ease;
+
+  &:hover { border-color: var(--border-strong); }
+}
+
+.kpiLabel {
+  font-size: 10.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+}
+
+.kpiValue {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-1);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.kpiChange {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+
+  &.kpiChangeUp      { color: var(--green); }
+  &.kpiChangeDown    { color: var(--red); }
+  &.kpiChangeNeutral { color: var(--text-3); }
+}
+
+// ── Charts Row ────────────────────────────────────────────────────────────────
+
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+
+  @media (max-width: 1000px) { grid-template-columns: 1fr; }
+}
+
+.chartCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: border-color 0.2s ease;
+
+  &:hover { border-color: var(--border-strong); }
+}
+
+.chartHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.chartTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: -0.2px;
+  margin-bottom: 3px;
+}
+
+.chartSub { font-size: 11.5px; color: var(--text-3); }
+
+.chartLegend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+// Health score badge
+.healthScore {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.healthScoreVal {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.healthScoreLabel {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+// ── Custom Tooltip ────────────────────────────────────────────────────────────
+
+.tooltip {
+  background: #0f172a;
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.tooltipLabel {
+  font-size: 10.5px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tooltipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tooltipName {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.tooltipVal {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+// ── Budget vs Actual ──────────────────────────────────────────────────────────
+
+.budgetCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: border-color 0.2s ease;
+
+  &:hover { border-color: var(--border-strong); }
+}
+
+.budgetList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.budgetRow {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.budgetMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.budgetCat {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+.budgetAmts {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.budgetSpent {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-1);
+
+  &.budgetSpentOver { color: var(--red); }
+}
+
+.budgetOf {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.budgetPct {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(34,211,165,0.2);
+
+  &.budgetPctOver {
+    background: var(--red-dim);
+    color: var(--red);
+    border-color: rgba(248,113,113,0.2);
+  }
+}
+
+.budgetTrack { width: 100%; }
+
+.budgetTrackBg {
+  width: 100%;
+  height: 5px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.budgetTrackFill {
+  height: 100%;
+  background: linear-gradient(90deg, #22d3a5, #6366f1);
+  border-radius: 5px;
+  transition: width 0s; // GSAP handles this
+
+  &.budgetTrackFillOver {
+    background: linear-gradient(90deg, #f59e0b, #f87171);
+  }
+}
+
+// ── Insight Cards ─────────────────────────────────────────────────────────────
+
+.insightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+
+  @media (max-width: 1000px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 560px)  { grid-template-columns: 1fr; }
+}
+
+.insightCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  &.insightCard_red    { border-top: 2px solid rgba(248,113,113,0.4); }
+  &.insightCard_green  { border-top: 2px solid rgba(34,211,165,0.4); }
+  &.insightCard_amber  { border-top: 2px solid rgba(245,158,11,0.4); }
+  &.insightCard_blue   { border-top: 2px solid rgba(99,102,241,0.4); }
+  &.insightCard_purple { border-top: 2px solid rgba(139,92,246,0.4); }
+}
+
+.insightIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+
+  &.insightIcon_red    { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(248,113,113,0.2); }
+  &.insightIcon_green  { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,211,165,0.2); }
+  &.insightIcon_amber  { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+  &.insightIcon_blue   { background: var(--accent-dim);color: var(--accent);border: 1px solid rgba(99,102,241,0.2); }
+  &.insightIcon_purple { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.2); }
+}
+
+.insightLabel {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.insightTitle {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: -0.2px;
+}
+
+.insightDesc {
+  font-size: 12.5px;
+  color: var(--text-3);
+  line-height: 1.5;
+}

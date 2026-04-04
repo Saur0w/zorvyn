@@ -1,0 +1,15 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-base);
+}
+
+.body {
+  flex: 1;
+  margin-left: var(--sidebar-w, 230px);
+  min-width: 0;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+}

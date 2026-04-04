@@ -9,10 +9,9 @@ import {
     ArrowUpRight, ArrowDownRight, Wallet, TrendingUp,
     ShoppingCart, MoveRight, ChevronRight,
 } from 'lucide-react';
-import type { Context } from 'gsap';
 import styles from './style.module.scss';
 import Link from 'next/link';
-
+import type { Context } from "gsap";
 type TxType = 'income' | 'expense';
 
 interface Transaction {
@@ -94,7 +93,6 @@ function formatDate(): string {
     });
 }
 
-// Fixed standard 'any' cast by explicitly setting standard Recharts Tooltip shape
 interface CustomTooltipProps {
     active?: boolean;
     payload?: { value: number }[];
@@ -122,7 +120,6 @@ export default function Overview() {
     const txRef         = useRef<HTMLElement>(null);
     const counterRefs   = useRef<(HTMLSpanElement | null)[]>([]);
 
-    // Prevent hydration mismatch for dynamic charts
     useEffect(() => { setIsMounted(true); }, []);
 
     useEffect(() => {
@@ -171,7 +168,6 @@ export default function Overview() {
                 counterRefs.current.forEach((el, i) => {
                     if (!el) return;
                     const target = SUMMARY_CARDS[i].value;
-                    // FIX TS2554: gsap.to takes 2 args, gsap.fromTo takes 3. Using object to avoid 'this' issues.
                     const counter = { val: 0 };
 
                     gsap.to(counter, {
@@ -252,7 +248,6 @@ export default function Overview() {
                 <div className={styles.heroLeft}>
                     <div className={styles.greetingWrap}>
                         <p className={styles.greeting}>
-                            {/* suppressHydrationWarning added for Next.js SSR compatibility */}
                             <span ref={greetRef} className={styles.greetText} suppressHydrationWarning>
                 {getGreeting()},
               </span>
